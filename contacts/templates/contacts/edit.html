@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'contacts/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}<h1>Edit  Contact</h1>
+    <hr class="mt-0 mb-4">
+
+
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" name="delete" class="btn btn-success" >Delete</button>
+        <button type="submit" name="save" class="btn btn-success">Save</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends 'contacts/base.html' %}
+{% block content %}<h1>Welcome {{user.username }}</h1>
+    <hr class="mt-0 mb-4">
+    {% if not contacts.exists%}<h2>You now need to add new contacts to your list</h2><br>{% endif %}
+    <form method="GET" action="/addcontact">
+        <button type="submit" class="btn btn-success" name="Index">Add new contact</button>
+    </form>
+    <br>
+    <ul>
+        {% for u in contacts %}
+
+                <li><a href={% url "edit_contact" u.id %}>{{u.get_Title_display}} {{u.first_name}} {{u.last_name}}</a></li>
+
+        {% endfor %}
+    </ul>
+{% endblock %}
+{% block title %}Home Page{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+</body>
+</html>
