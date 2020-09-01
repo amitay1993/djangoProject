@@ -25,8 +25,6 @@ def home(response):
             if form.is_valid():
                 username = form.cleaned_data['username']
                 password = form.cleaned_data['password']
-                print(password)
-                print(username)
                 user = authenticate(username=username, password=password)
                 if user:
                     if user.is_active:
@@ -89,7 +87,7 @@ def editcontact(request,contact_id):
         if "save" in request.POST:
             if form.is_valid():
                 form.save()
-                print("in save")
+
                 return redirect("/myaccount")
         else:
                 if form.is_valid():

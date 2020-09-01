@@ -19,10 +19,6 @@ def register(response):
             profile.save()
         else:
             return HttpResponse("Invalid")
-            # print("**********************")
-            # n=form.cleaned_data['username']
-            # print("**********************")
-            # form.save()
         return redirect("/")
     else:
         form = RegisterForm()

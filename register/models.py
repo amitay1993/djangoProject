@@ -15,17 +15,13 @@ class UserModel(models.Model):
         ("5", "Prof"))
 
     Title=models.CharField(max_length=1,choices=Titles,blank=False,default=Titles[0])
-    # first_name=models.CharField(max_length=128,blank=False)
-    # last_name=models.CharField(max_length=128,blank=False)
-    # email=models.EmailField(max_length=264,unique=True,blank=False,null=True)
+
     Profession=models.CharField(max_length=128,blank=True)
     Academic_Acreditation=models.CharField(max_length=128,blank=True)
     Institution=models.CharField(max_length=128,blank=True)
     Office_Phone=models.CharField(max_length=20,verbose_name="Office Phone")
     Mobile_Phone=models.IntegerField(default=0,verbose_name="Mobile Phone")
     Address=models.CharField(max_length=128,blank=True)
-    LinkedIn_address=models.URLField(blank=True,verbose_name="LinkedIn address")#correspnd to the type we would specify in HTML
-    # user_name=models.CharField (max_length=128,blank=False,default="")
-
+    LinkedIn_address=models.URLField(blank=True,verbose_name="LinkedIn address")
     def __str__(self):
         return self.user.username
