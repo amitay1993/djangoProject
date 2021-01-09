@@ -10,7 +10,6 @@ def register(response):
     if response.method == "POST":
         django_form = RegisterForm(response.POST)#django User
         profile_form=UserProfileInfoForm(response.POST)#our user
-
         if django_form.is_valid() and profile_form.is_valid() :
             user=django_form.save()
             user.save()

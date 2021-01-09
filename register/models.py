@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class UserModel(models.Model):
 
     #model calss to add adinonal info that the default user does not have
-    #for ex: llike titles
+    #for ex: like titles
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     Titles = (
         ("1", "Mr"),
@@ -23,5 +23,8 @@ class UserModel(models.Model):
     Mobile_Phone=models.IntegerField(default=0,verbose_name="Mobile Phone")
     Address=models.CharField(max_length=128,blank=True)
     LinkedIn_address=models.URLField(blank=True,verbose_name="LinkedIn address")
+
+
+
     def __str__(self):
         return self.user.username

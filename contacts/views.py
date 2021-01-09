@@ -29,7 +29,7 @@ def home(response):
                 if user:
                     if user.is_active:
                         login(response, user)
-                        response.session['username'] = username
+                        response.session['username'] = username #to save the current user in the session
                         return redirect("/myaccount")  # here  we  need to send the dictinoary and puplate it
                 else:
                     return render(response,"registration/login.html",{"form":form,'error':"Username and Password did not match"})
@@ -52,7 +52,6 @@ def user_login(response):
 @login_required
 def my_account(request):
     con = ContactModel.objects.filter(user=request.user)
-
     u = User.objects.get(username=request.user)
     return render(request, 'contacts/home.html', {"user": u, "contacts": con})
 
@@ -87,7 +86,6 @@ def editcontact(request,contact_id):
         if "save" in request.POST:
             if form.is_valid():
                 form.save()
-
                 return redirect("/myaccount")
         else:
                 if form.is_valid():
